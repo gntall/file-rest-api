@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  file-api:
+    build: .
+    ports:
+      - "8000:5000"
+    environment:
+      - ROOT=/mydata/
+    volumes:
+      - type: bind
+        source: "$LOCAL_ROOT"
+        target: "/mydata"
