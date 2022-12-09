@@ -12,5 +12,5 @@ def define_full_path(path=None):
         return ROOT_DIR
     return os.path.join(ROOT_DIR, path)
 
-ROOT_DIR = define_root()
+ROOT_DIR = define_root() 
 

@@ -68,11 +68,15 @@ class FileResource(Resource):
             with open(full_path, 'w') as f:
                 f.truncate(0)
                 f.write(args['file_contents'])
-            return f"wrote data to {full_path}"
+            return f"Wrote new data to {full_path}"
         
         elif args['file_or_dir'] == 'dir' and os.path.isdir(full_path):
-            os.rename(full_path, args['new_dir'])
-            return f"Renamed {full_path} to {args['new_dir']}"
+            new_path = os.path.join(
+                os.path.dirname(full_path), 
+                args['new_dir']
+            )
+            os.rename(full_path, new_path)
+            return f"Renamed {full_path} to {new_path}"
         
         else:
             abort(400)
