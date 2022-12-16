@@ -1,12 +1,15 @@
 #!/bin/bash
 
 echo Please enter root directory
-read -p 'Root:' LOCAL_ROOT
+read -p 'Root:' root
 
-if [ -z "$LOCAL_ROOT" ]
+if [ -z "$root" ]
 then
     echo "user input is empty"
     export LOCAL_ROOT=$(pwd)
+else
+    echo "user entered $root"
+    export LOCAL_ROOT=$root
 fi
 
 echo "set local root to $LOCAL_ROOT"
